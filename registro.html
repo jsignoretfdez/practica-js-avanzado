@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio|Lista Peliculas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="title" content="Inicio">
+    <meta name="description" content="Descripción de la WEB">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light"></nav>
+
+<main class="container">
+    <div class="col-md-8 offset-md-2">
+        <span class="anchor" id="formUserEdit"></span>
+        <hr class="my-5">
+
+        <!-- form user info -->
+        <div class="card card-outline-secondary">
+            <div class="card-header">
+                <h3 class="mb-0">Registro Usuario</h3>
+            </div>
+            <div class="card-body">
+                <form class="form" id="form-register">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Genero</label>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="genero1" name="genero" value="Hombre">
+                            <label class="form-check-label" for="genero1">Hombre</label>
+                        </div>
+
+                        <!-- Material inline 2 -->
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="genero2" name="genero" value="Mujer">
+                            <label class="form-check-label" for="genero2">Mujer</label>
+                        </div>
+
+                        <!-- Material inline 3 -->
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="genero3" name="genero" value="Otro">
+                            <label class="form-check-label" for="genero3">Otro</label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Nombre</label>
+                        <div class="col-lg-9">
+                            <input id="name" class="form-control" type="text" placeholder="Nombre..." required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Apellidos</label>
+                        <div class="col-lg-9">
+                            <input id="lastname" class="form-control" type="text" placeholder="Apellidos..." >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                        <div class="col-lg-9">
+                            <input id="mail" class="form-control" type="email" placeholder="Email..." required >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Pais</label>
+                        <div class="col-lg-9">
+                            <select id="land" class="form-control" size="0" required >
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Provincia</label>
+                        <div class="col-lg-9">
+                            <select id="provincia" class="form-control" size="0" required>
+                                <option value="" selected disabled class="nodisplay">Provincia...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Móvil</label>
+                        <div class="col-lg-9">
+                            <input id="mobile" class="form-control" type="tel" value="" placeholder="Movil..." >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                        <div class="col-lg-9">
+                            <input id="username" class="form-control" type="text" value="" placeholder="Nombre usuario..." required >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                        <div class="col-lg-9">
+                            <input id="pwd1" class="form-control" pattern = ".{6,}" title="Introduce mínimo 6 caracteres para la contraseña" type="password" placeholder="Contraseña..." required>
+                        </div>
+                        <span class="col-lg-12 text-right text-secondary">Mínimo 6 caracteres</span>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Confirmar Password</label>
+                        <div class="col-lg-9">
+                            <input id="pwd2" class="form-control" type="password" placeholder="Confirmar Contraseña..." required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">API_KEY</label>
+                        <div class="col-lg-9">
+                            <input id="api" class="form-control" type="text" value="" placeholder="Introduce API_KEY..." required >
+                        </div>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="check" required >
+                        <label class="form-check-label" for="check">Acepto las condiciones de uso</label>
+                    </div>
+                    <button class="btn btn-success btn-lg float-right" id="btnRegistro">Registrarse</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-2"></footer>
+<!-- Footer -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script type="module" src="./assets/js/app.js"></script>
+</body>
+</html>
