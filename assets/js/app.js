@@ -40,7 +40,6 @@ document.querySelector('.navbar').innerHTML = templateHeader.render(page);
     // Eventos
     if (sessionStorage.length > 0){
         const logout = document.querySelector('.btn-logout');
-        console.log(logout);
         logout.addEventListener('click', logoutUser);
     }
 
