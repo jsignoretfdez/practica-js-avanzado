@@ -3,7 +3,7 @@ import {getLogin} from "./utils.js";
 
 export function mainRegister (storeUsers) {
     const form = document.querySelector('#form-register');
-    const aGenero = [...document.querySelectorAll('[name="genero"]')];
+    const aGenero = document.querySelectorAll('[name="genero"]');
     const aName = document.querySelector('#name');
     const aApellido = document.querySelector('#lastname');
     const aEmail = document.querySelector('#mail');
@@ -15,6 +15,9 @@ export function mainRegister (storeUsers) {
     const pwdConfirm = document.querySelector('#pwd2');
     const apiKey = document.querySelector('#api');
     const btnRegistro = document.querySelector('#btnRegistro');
+    const smsUser = document.querySelector('#sms-user');
+    const smsMail = document.querySelector('#sms-email');
+    const smsApi = document.querySelector('#sms-api');
 
 
     pais.addEventListener('change', selectLand);
@@ -36,6 +39,32 @@ export function mainRegister (storeUsers) {
 
     function register (e) {
 
+        let validateUSer = getLogin();
+
+        const userValidate = validateUSer.find(item => item.usuario === username.value);
+        const mailValidate = validateUSer.find(item => item.email === aEmail.value);
+        const apiValidate = validateUSer.find(item=> item.apikey === apiKey.value);
+
+        if (userValidate || mailValidate || apiValidate) {
+            limpiarHTML();
+            if (userValidate){
+                e.preventDefault();
+                smsUser.classList.remove('nodisplay');
+                smsUser.classList.add('display');
+            }
+            if (mailValidate){
+                e.preventDefault();
+                smsMail.classList.remove('nodisplay');
+                smsMail.classList.add('display');
+            }
+            if(apiValidate){
+                e.preventDefault();
+                smsApi.classList.remove('nodisplay');
+                smsApi.classList.add('display');
+            }
+
+        }
+         else {
         e.preventDefault();
 
         if (pwd.value !== pwdConfirm.value) {
@@ -53,11 +82,10 @@ export function mainRegister (storeUsers) {
             pwd.value = "";
             pwdConfirm.value = "";
             return;
-        }
-
+        } else{
             const data = {};
             data.nombre = aName.value;
-            data.genero = (aGenero.checked) ? aGenero.filter(item => item.checked)[0].value : "";
+            data.genero = aGenero.value;
             data.apellido = aApellido.value;
             data.email = aEmail.value;
             data.pais = pais.value;
@@ -65,11 +93,13 @@ export function mainRegister (storeUsers) {
             data.movil = mobile.value;
             data.usuario = username.value;
             data.contraseña = pwd.value;
-            //data.confirmaContraseña = pwdConfirm.value;
-            data.apiKey = apiKey.value;
+            data.apikey = apiKey.value;
 
+            console.log(aGenero.value);
             save(data)
             registroCompletado()
+        }
+        }
 
     }
 
@@ -87,6 +117,11 @@ export function mainRegister (storeUsers) {
         window.location = 'login.html';
     }
 
+    function limpiarHTML () {
+        while (smsUser.firstElementChild) {
+            smsUser.removeChild(smsUser.firstElementChild);
+        }
+    }
 
 
 }
