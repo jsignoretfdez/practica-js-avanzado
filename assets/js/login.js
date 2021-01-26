@@ -13,6 +13,7 @@ export function mainLogin() {
     btnLogin.addEventListener('click', onClickLogin);
 
 
+
         function onClickLogin(e) {
 
             e.preventDefault();
@@ -44,6 +45,8 @@ export function mainLogin() {
                 divSms.classList.add('alert', 'alert-danger', 'col-12', 'tex-align-center');
 
                 sms.appendChild(divSms);
+
+                console.log(sms.firstChild);
 
             } else{
 
