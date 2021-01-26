@@ -84,18 +84,17 @@ export function mainRegister (storeUsers) {
             return;
         } else{
             const data = {};
-            data.nombre = aName.value;
+            data.nombre = aName.value.trim();
             data.genero = aGenero.value;
-            data.apellido = aApellido.value;
-            data.email = aEmail.value;
+            data.apellido = aApellido.value.trim();
+            data.email = aEmail.value.trim();
             data.pais = pais.value;
             data.provincia = provincia.value;
-            data.movil = mobile.value;
-            data.usuario = username.value;
-            data.contraseña = pwd.value;
-            data.apikey = apiKey.value;
+            data.movil = mobile.value.trim();
+            data.usuario = username.value.trim();
+            data.contraseña = pwd.value.trim();
+            data.apikey = apiKey.value.trim();
 
-            console.log(aGenero.value);
             save(data)
             registroCompletado()
         }
@@ -108,7 +107,7 @@ export function mainRegister (storeUsers) {
         const inputs = [...form.querySelectorAll('input')]
         const users = window.localStorage.getItem(storeUsers) ?
             JSON.parse(window.localStorage.getItem(storeUsers)) : []
-        users.push(data)
+        users.push(data);
         window.localStorage.setItem(storeUsers, JSON.stringify(users))
         inputs.forEach(item => item.value = '');
     }
