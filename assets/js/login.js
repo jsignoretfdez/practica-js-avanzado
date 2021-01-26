@@ -58,7 +58,7 @@ export function mainLogin() {
                 let apellidos = item.apellido;
                 let mail = item.email;
 
-                    if (userName === userInput.value && pass === passwordInput.value) {
+                    if (userName === userInput.value.trim() && pass === passwordInput.value.trim()) {
                         const usuario = {};
                         usuario.username = userInput.value;
                         usuario.apiKey = api;
