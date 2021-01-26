@@ -42,6 +42,10 @@
     display: none;
 }
 
+.display{
+    display: block;
+}
+
 .container.container-user{
     background: -webkit-linear-gradient(left, #3931af, #00c6ff);
     margin: 0;
