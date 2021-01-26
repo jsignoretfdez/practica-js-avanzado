@@ -69,15 +69,12 @@ export function mainUser (){
 
 
     const btnFilm = document.querySelector('#btnFilm');
-    btnFilm.addEventListener('click', getFilms);
+    btnFilm.addEventListener('click', goFilms);
 
 
-    function getFilms (e) {
+    function goFilms () {
 
-        e.preventDefault();
-
-        let userLogin = isLogged();
-        console.log(userLogin.username);
+        window.location = 'peliculas.html';
 
     }
 
