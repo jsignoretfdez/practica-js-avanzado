@@ -8,6 +8,9 @@ export const templateHeader =  {
                 <a class="nav-link" href="./usuario.html">Usuario</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="./peliculas.html">Peliculas</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link btn-logout" href="./index.html">Logout</a>
             </li>` :
 
@@ -27,7 +30,10 @@ export const templateHeader =  {
                     <li class="nav-item">
                         <a class="nav-link" href="./index.html">Inicio</a>
                     </li>
-                    ${textLogin}`
+                    <li class="nav-item">
+                        <a class="nav-link" href="./registro.html">Registrarse</a>
+                    </li>
+                    `
                 break;
 
             case 'registro.html':
@@ -36,11 +42,23 @@ export const templateHeader =  {
                     <li class="nav-item">
                         <a class="nav-link" href="./index.html">Inicio</a>
                     </li>
-                    ${textLogin}
+                     <li class="nav-item">
+                        <a class="nav-link" href="./login.html">Login</a>
+                    </li>
+                    
                     `
                 break;
 
             case 'usuario.html':
+
+                menu = `<a class="navbar-brand" href="#">Películas</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">Inicio</a>
+                    </li>
+                    ${textLogin}`
+                break;
+
+            case 'peliculas.html':
 
                 menu = `<a class="navbar-brand" href="#">Películas</a>
                     <li class="nav-item">
