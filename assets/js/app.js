@@ -37,6 +37,13 @@ document.querySelector('.navbar').innerHTML = templateHeader.render(page);
         mainUser(storeUsers);
     }
 
+    if(page === 'peliculas.html'){
+        if(sessionStorage.length <= 0){
+            window.location = 'index.html';
+        }
+        mainLogin(storeUsers);
+    }
+
     // Eventos
     if (sessionStorage.length > 0){
         const logout = document.querySelector('.btn-logout');
