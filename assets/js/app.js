@@ -3,6 +3,8 @@ import {templateHeader} from "../../templates/header.js";
 import {mainRegister} from "./register.js";
 import {mainLogin} from "./login.js";
 import {mainUser} from "./user.js";
+import {mainFilms} from "./peliculas.js";
+import {mainMovieDetail} from "./movie-detail.js";
 
 
 function main (){
@@ -41,7 +43,14 @@ document.querySelector('.navbar').innerHTML = templateHeader.render(page);
         if(sessionStorage.length <= 0){
             window.location = 'index.html';
         }
-        mainLogin(storeUsers);
+        mainFilms();
+    }
+
+    if(page === 'film-detail.html'){
+        if(sessionStorage.length <= 0){
+            window.location = 'index.html';
+        }
+        mainMovieDetail();
     }
 
     // Eventos
@@ -49,6 +58,7 @@ document.querySelector('.navbar').innerHTML = templateHeader.render(page);
         const logout = document.querySelector('.btn-logout');
         logout.addEventListener('click', logoutUser);
     }
+
 
 // Funciones
 
