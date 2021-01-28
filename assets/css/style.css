@@ -140,6 +140,10 @@
     margin-right: 1.3rem;
 }
 
+#page-prev, #page-next{
+    display: none;
+}
+
 .oculto{
     pointer-events: none;
     background-color: #dbdbdb;

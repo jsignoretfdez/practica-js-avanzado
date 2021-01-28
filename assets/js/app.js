@@ -9,62 +9,63 @@ import {mainMovieDetail} from "./movie-detail.js";
 
 function main (){
 
-// Nodos
-const storeUsers = 'usuarios';
+    // Variable
+    const storeUsers = 'usuarios';
 
-// Templates Render
-let posicion = location.pathname.lastIndexOf('/') + 1;
-let page = location.pathname.slice(posicion);
-document.querySelector('.page-footer').innerHTML = templateFooter.render();
-document.querySelector('.navbar').innerHTML = templateHeader.render(page);
+    // Templates Render
+    let posicion = location.pathname.lastIndexOf('/') + 1;
+    let page = location.pathname.slice(posicion);
+    document.querySelector('.page-footer').innerHTML = templateFooter.render();
+    document.querySelector('.navbar').innerHTML = templateHeader.render(page);
 
-
-
-// Manejadores de Eventos
-    if (page === 'registro.html'){
-        if(sessionStorage.length > 0){
-            window.location = 'usuario.html';
+    // Comprobar en que página nos escontramos y realizar las acciones pertinentes.
+        if (page === 'registro.html'){
+            if(sessionStorage.length > 0){
+                window.location = 'usuario.html';
+            }
+            mainRegister(storeUsers);
         }
-        mainRegister(storeUsers);
-    }
 
-    if(page === 'login.html'){
-        if(sessionStorage.length > 0){
-            window.location = 'usuario.html';
+        if(page === 'login.html'){
+            if(sessionStorage.length > 0){
+                window.location = 'usuario.html';
+            }
+            mainLogin();
         }
-        mainLogin(storeUsers);
-    }
 
-    if(page === 'usuario.html'){
-        mainUser(storeUsers);
-    }
-
-    if(page === 'peliculas.html'){
-        if(sessionStorage.length <= 0){
-            window.location = 'index.html';
+        if(page === 'usuario.html'){
+            if(sessionStorage.length <= 0){
+                window.location = 'login.html';
+            }
+            mainUser();
         }
-        mainFilms();
-    }
 
-    if(page === 'film-detail.html'){
-        if(sessionStorage.length <= 0){
-            window.location = 'index.html';
+        if(page === 'peliculas.html'){
+            if(sessionStorage.length <= 0){
+                window.location = 'index.html';
+            }
+            mainFilms();
         }
-        mainMovieDetail();
+
+        if(page === 'film-detail.html'){
+            if(sessionStorage.length <= 0){
+                window.location = 'index.html';
+            }
+            mainMovieDetail();
+        }
+
+        // Eventos
+        if (sessionStorage.length > 0){
+            const logout = document.querySelector('.btn-logout');
+            logout.addEventListener('click', logoutUser);
+        }
+
+
+    // Funciones
+
+    function logoutUser () {
+       sessionStorage.clear();
     }
-
-    // Eventos
-    if (sessionStorage.length > 0){
-        const logout = document.querySelector('.btn-logout');
-        logout.addEventListener('click', logoutUser);
-    }
-
-
-// Funciones
-
-function logoutUser () {
-   sessionStorage.clear();
-}
 
 
 

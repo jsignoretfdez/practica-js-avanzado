@@ -31,35 +31,35 @@ export function mainMovieDetail (){
             </div>
             <div class="col-md-12 col-lg-8">
                 <h3 class="mt-3">${title}</h3>
-                <span>${tag}</span>
-                <p class="text-left mt-2 font-weight-bold">Descripción</p>
-                <p class="text-left">${desc}</p>
+                <span>${tag}</span>             
+                    <p class="text-left mt-2 font-weight-bold">Descripción</p>
+                    <p class="text-left">${desc}</p>        
             </div>
         </div>
-        <div class="row">
+        <div class="row ml-lg-1 mr-lg-1 mt-2">
             <div class="col-md-12 col-lg-4">
                <p class="text-left mt-2 font-weight-bold">Producción: <span class="font-weight-normal">${joinProd}</span></p>
             </div>
        
             <div class="col-md-12 col-lg-4">
-               <p class="text-left mt-2 font-weight-bold">Genero: <span class="font-weight-normal">${joinGen}</span></p>
+               <p class="text-left mt-2 font-weight-bold">Generos: <span class="font-weight-normal">${joinGen}</span></p>
             </div>
            
-            <div class="col-md-12 col-lg-4">
+            <div class="col-md-12 col-lg-2">
                <p class="text-left mt-2 font-weight-bold">Estreno: <span class="font-weight-normal">${date}</span></p>
+            </div>
+            <div class="col-md-12 col-lg-2">
+               <p class="text-left mt-2 font-weight-bold text-lg-right">Votos: <span class="font-weight-normal">${votos}</span></p>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 col-lg-4">
-               <p class="text-left mt-2 font-weight-bold">Más Información: <a href="${url}" class="font-weight-normal">${url}</a></p>
+            <div class="col-md-12 col-lg-5 ml-lg-3">
+               <p class="text-left mt-2 font-weight-bold">Más Información</p>
+               <a href="${url}" class="font-weight-normal align-left text-left d-flex text-break">${url}</a>         
             </div>
-        </div>
+            
+            
+        </div>    
    `
     divFilm.appendChild(movie);
-
-
-
-
-
-
 }
