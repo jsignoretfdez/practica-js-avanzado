@@ -4,14 +4,20 @@ import {isLogged} from "./utils.js";
 export function mainFilms () {
 
     const divFilmsContainer = document.querySelector('#container-films');
+    const btnPrev = document.querySelector('#page-prev');
+    const btnNext = document.querySelector('#page-next');
     let url = 'https://api.themoviedb.org/3/movie/';
     let pageInit = 1;
 
     const userLogged = isLogged();
     const userApi = userLogged.apiKey;
 
-    let urlFilms= `${url}now_playing?api_key=${userApi}&language=en-US&page=${pageInit}`;
+    //let urlFilms= `${url}now_playing?api_key=${userApi}&language=en-US&page=${pageInit}`;
 
+    peticionFilms(pageInit);
+
+    function peticionFilms (page) {
+        let urlFilms= `${url}now_playing?api_key=${userApi}&language=es-ES&page=${page}`;
     fetch(urlFilms)
         .then(res =>{
             if (!res.ok) throw Error(res.status);
@@ -19,12 +25,21 @@ export function mainFilms () {
         })
         .then(data => getFilms(data))
         .catch(err => console.log(err));
-
+    }
 
     function getFilms (data) {
+        limpiarHTML();
 
         const resultado = data.results;
         let contador = 1;
+
+        if (pageInit > 1) {
+            btnPrev.classList.remove('oculto');
+            btnPrev.classList.add('mostrar');
+        } else{
+            btnPrev.classList.remove('mostrar');
+            btnPrev.classList.add('oculto');
+        }
 
         const listado = resultado.map(item => {
             let pelicula = {
@@ -65,7 +80,7 @@ export function mainFilms () {
     function getFilm (e) {
 
         let idFilm = e.target.value;
-        let urlDetail = `${url}${idFilm}?api_key=${userApi}`;
+        let urlDetail = `${url}${idFilm}?api_key=${userApi}&language=es-ES`;
 
         console.log(urlDetail);
 
@@ -80,9 +95,25 @@ export function mainFilms () {
 
             })
             .catch(err => console.log(err));
-
-
     }
+
+
+        btnNext.addEventListener('click', (e) => {
+            pageInit++
+            peticionFilms(pageInit)
+        });
+
+        btnPrev.addEventListener('click', (e) => {
+            pageInit--
+            peticionFilms(pageInit);
+        });
+
+    function limpiarHTML () {
+        while (divFilmsContainer.firstChild) {
+            divFilmsContainer.removeChild(divFilmsContainer.firstChild);
+        }
+    }
+
 }
 
 function getFilmDetail(data) {
