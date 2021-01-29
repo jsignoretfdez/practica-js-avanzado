@@ -12,6 +12,12 @@ consultar el listado de películas en forma de lista o con información detallad
 
 ## Uso
 
+Primero hacemos un git clone del repositorio
+
+`
+git clone https://github.com/jsignoretfdez/practica-js-avanzado.git
+`
+
 Para usar la aplicación debemos utilizar un servidor local tipo live server o algún otro servidor local que nos permitar crear una conexión.
 
 `
