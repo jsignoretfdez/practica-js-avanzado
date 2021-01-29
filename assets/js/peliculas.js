@@ -16,6 +16,7 @@ export function mainFilms () {
 
     peticionFilms(pageInit);
 
+    // Función que nos trae el listado de películas.
     function peticionFilms (page) {
         let urlFilms= `${url}now_playing?api_key=${userApi}&language=es-ES&page=${page}`;
     fetch(urlFilms)
@@ -43,6 +44,7 @@ export function mainFilms () {
         ;
     }
 
+    // Función que nos pinta los datos traigo en la petición Fetch
     function getFilms (data) {
         limpiarHTML(divFilmsContainer);
 
@@ -95,6 +97,10 @@ export function mainFilms () {
         });
     }
 
+    /*
+    Función que hace petición Fetch nueva con la id
+    almacenada en cada boton para poder acceder a los detalles.
+     */
     function getFilm (e) {
 
         let idFilm = e.target.value;
@@ -125,6 +131,12 @@ export function mainFilms () {
 
 }
 
+
+/*
+Función que almacena los datos para meterlos en un
+sessionStorage y así poder recuperarlo para mostrar la vista
+detallada.
+ */
 function getFilmDetail(data) {
 
     let datos = {
@@ -137,14 +149,9 @@ function getFilmDetail(data) {
         genero: data.genres,
         production: data.production_companies,
         tag: data.tagline,
+        back: data.backdrop_path,
     }
-
-    function movieDetail() {
         sessionStorage.setItem('movie', JSON.stringify(datos));
-    }
-
-    movieDetail();
-
-    window.location = 'film-detail.html';
+        window.location = 'film-detail.html';
 
 };

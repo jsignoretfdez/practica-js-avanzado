@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Englebert&display=swap');
+
+
 .container-main{
     text-align: center;
     margin-top: 1.5rem;
@@ -156,4 +161,25 @@
 
 .container, .container-md, .container-sm{
     max-width: 95%;
+}
+
+#img-back{
+    display: none;
+}
+
+.title-movie, desc-title{
+    font-family: 'Orbitron', sans-serif;
+}
+
+@media (min-width: 960px){
+
+    #img-back{
+        display: block;
+    }
+
+    .desc-text{
+        font-family: 'Englebert', sans-serif;
+        padding-right: 1.5rem;
+        font-size: 1.1rem;
+    }
 }
